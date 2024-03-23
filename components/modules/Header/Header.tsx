@@ -3,7 +3,7 @@ import useLang from '@/hooks/useLang'
 import Logo from '@/components/elements/Logo/Logo'
 import Link from 'next/link'
 import Menu from '@/components/modules/Header/Menu'
-import { openMenu } from '@/context/modals'
+import { openMenu, openSearchModal } from '@/context/modals'
 import { addOverflowHiddenToBody } from '@/app/lib/utils/common'
 
 const Header = () => {
@@ -12,6 +12,10 @@ const Header = () => {
   const handleOpenMenu = () => {
     addOverflowHiddenToBody()
     openMenu()
+  }
+  const handleOpenSearchModal = () => {
+    openSearchModal()
+    addOverflowHiddenToBody()
   }
   return (
     <header className='header'>
@@ -25,7 +29,10 @@ const Header = () => {
         </div>
         <ul className='header__links list-reset'>
           <li className='header__links__item'>
-            <button className='btn-reset header__links__item__btn header__links__item__btn--search' />
+            <button
+              className='btn-reset header__links__item__btn header__links__item__btn--search'
+              onClick={handleOpenSearchModal}
+            />
           </li>
           <li className='header__links__item'>
             <Link
