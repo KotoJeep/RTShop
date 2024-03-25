@@ -1,9 +1,7 @@
 // import styles from './page.module.css'
 // className={styles.main}
+import MainPage from '@/components/templates/MainPage/MainPage'
+
 export default function Home() {
-  return (
-    <main>
-      <h1>Page</h1>
-    </main>
-  )
+  return <MainPage />
 }
